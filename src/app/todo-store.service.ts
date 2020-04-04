@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { TodoListComponent } from './app.component';
 
 
-interface TodoEntity {
+export interface TodoEntity {
     title: string
-    isCompleted: boolean 
+    isCompleted: boolean
 }
 
 @Injectable({
@@ -17,6 +17,21 @@ export class TodoStoreService {
             title: 'Finish the task',
             isCompleted: false
         },
+        {
+            title: 'Take a shower',
+            isCompleted: true
+        },
     ];
+
+    add(title: string) {
+        this.todoList.push({
+            isCompleted: false,
+            title: title,
+        });
+    }
+
+    updateIsChecked(updatedIndex: number, isChecked: boolean) {
+        this.todoList[updatedIndex].isCompleted = isChecked;
+    }
 
 }
