@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-session"
+    }
+  },
+  "defaultProject": "angular-session",
+  "cli": {
+    "analytics": false
+  }
 }
