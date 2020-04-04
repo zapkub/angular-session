@@ -2,20 +2,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent, TodoInputComponent } from './app.component';
+import { AppComponent, TodoInputComponent, TodoListComponent } from './app.component';
+import { TodoStoreService } from './todo-store.service';
 
 @NgModule({
 
   declarations: [
     AppComponent,
     TodoInputComponent,
+    TodoListComponent,
   ],
+
+  providers: [ 
+    TodoStoreService,
+  ],
+
+
 
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [ ],
 })
 export class AppModule { }
