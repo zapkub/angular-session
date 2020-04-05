@@ -1,5 +1,28 @@
-import { Component } from '@angular/core'
+import { Component, Directive, HostBinding, Input, AfterViewInit, Host, ElementRef, HostListener } from '@angular/core'
 import { TodoStoreService, TodoEntity } from './todo-store.service';
+
+@Directive({
+    selector: 'span[todoListLinethrough]'
+})
+export class TodoListLinethroughDirective {
+
+    @Input('todoListLinethrough') set todoListLinethrough(value: boolean) {
+        if (value) {
+            console.log('mark as completed')
+            this.style = "text-decoration: line-through;"
+        } else {
+            console.log('mark as incompleted')
+            this.style = "text-decoration: none;"
+        }
+    }
+    @HostBinding('style') style = ''
+
+    @HostListener('click')
+    handleClick() {
+        console.log('click!!')
+    }
+
+}
 
 @Component({
     template: `
@@ -10,10 +33,7 @@ import { TodoStoreService, TodoEntity } from './todo-store.service';
                     [isChecked]='todo.isCompleted'>
                 </app-todo-item-completed-input-checkbox>
 
-                <span *ngIf="todo.isCompleted" style="text-decoration: line-through;">
-                    {{ todo.title }}
-                </span>
-                <span *ngIf="!todo.isCompleted">
+                <span [todoListLinethrough]="todo.isCompleted">
                     {{ todo.title }}
                 </span>
 
@@ -23,8 +43,6 @@ import { TodoStoreService, TodoEntity } from './todo-store.service';
     selector: 'app-todo-list'
 })
 export class TodoListComponent {
-
-    time = 0;
     public get todoList(): TodoEntity[] {
         return this.todoStoreService.todoList;
     }

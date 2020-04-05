@@ -1,5 +1,5 @@
 import { NgModule, Component } from '@angular/core';
-import { TodoListComponent } from './todo-list.component';
+import { TodoListComponent, TodoListLinethroughDirective } from './todo-list.component';
 import { TodoItemCompletedInputCheckboxComponent } from './todo-item-completed-input-checkbox.component';
 import { TodoInputComponent } from './todo-input.component';
 import { TodoStoreService } from './todo-store.service';
@@ -20,6 +20,7 @@ export class TodoStandaloneComponent { }
         TodoInputComponent,
         TodoItemCompletedInputCheckboxComponent,
         TodoStandaloneComponent,
+        TodoListLinethroughDirective,
     ],
     providers: [
         TodoStoreService,
