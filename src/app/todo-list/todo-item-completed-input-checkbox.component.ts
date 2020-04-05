@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
+// type something
 @Component({
     template: `
         <input type="checkbox" [checked]="isChecked" (click)='handleClick()' />

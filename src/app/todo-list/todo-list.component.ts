@@ -16,6 +16,7 @@ import { TodoStoreService, TodoEntity } from './todo-store.service';
                 <span *ngIf="!todo.isCompleted">
                     {{ todo.title }}
                 </span>
+
             </li>
         </ul>
     `,
