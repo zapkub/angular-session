@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Angular9"
+    }
+  },
+  "defaultProject": "Angular9",
+  "cli": {
+    "analytics": "51fab729-9435-44a3-bb3d-2cde438121fb"
+  }
 }
