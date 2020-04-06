@@ -1,5 +1,6 @@
-import { Component, Directive, HostBinding, Input, AfterViewInit, Host, ElementRef, HostListener } from '@angular/core'
-import { TodoStoreService, TodoEntity } from './todo-store.service';
+import { Component, Directive, HostBinding, Input, AfterViewInit, Host, ElementRef, HostListener, OnInit } from '@angular/core'
+import { TodoStoreService } from './todo-store.service';
+import { TodoEntity } from './todo-api.service';
 
 @Directive({
     selector: 'span[todoListLinethrough]'
@@ -42,7 +43,13 @@ export class TodoListLinethroughDirective {
     `,
     selector: 'app-todo-list'
 })
-export class TodoListComponent {
+export class TodoListComponent implements OnInit {
+
+    ngOnInit(): void {
+        console.log('reload the todo list from the server')
+        this.todoStoreService.reload()
+    }
+
     public get todoList(): TodoEntity[] {
         return this.todoStoreService.todoList;
     }

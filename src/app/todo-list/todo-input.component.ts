@@ -3,6 +3,10 @@ import { TodoStoreService } from './todo-store.service';
 
 @Component({
     template: `
+        <div>
+            <input placeholder="your name" />
+        </div>
+        <hr />
         <input 
             #todoTitleInputElement
             (keydown.enter)="handleKeypress()" 
